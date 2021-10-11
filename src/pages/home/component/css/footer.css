@@ -1,0 +1,28 @@
+.footer-container{
+    background-color: black;
+    color: whitesmoke;
+    padding-bottom: 40px;
+}
+.footer-btn{
+   
+    background-color: whitesmaoke;
+}
+.footer-row{
+    padding-top: 40px;
+}
+.divider{
+  
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.footer-logo{
+    width: 140px;
+    height: 100px;
+}
+.footer-text{
+    font-size: 10px;
+    line-height: 20px;
+}
+.footer-text-1{
+    margin-top: -30px;
+}

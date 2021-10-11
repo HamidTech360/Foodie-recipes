@@ -1,0 +1,42 @@
+.home-logo{
+    width: 150.09px;
+    height: 40px;
+   
+    
+}
+.home-nav{
+    margin-top: -20px;
+
+}
+.navbar-item{
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn{
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    /* background-color: rgb(158, 44, 3); */
+}
+.navBar{
+
+    padding-top: 10px;
+}
+.menuIcon{
+    margin-right: 20px;
+}
+
+@media screen and (max-width:700px){
+    .logo{
+        width: 100px;
+        height: 26.65px;
+        margin-left: 18px;
+        margin-top: 22px;
+    } 
+    .home-nav{
+        margin-top: -30px;
+    }
+    .hideOnMobile{
+        display: none;
+    }
+}

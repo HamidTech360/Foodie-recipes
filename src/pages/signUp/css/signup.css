@@ -1,0 +1,20 @@
+.side-banner-container{
+    height: 700px;
+}
+.form-background-overlay{
+    height: inherit;
+}
+
+@media screen and (max-width:560px){
+    .side-banner-container{
+        display: none;
+    }
+    .side-form-container{
+        background-image: url('../../../assets/background.jpg');
+        height: 900px;
+
+    }
+    .hideOnDesktop{
+        display: block;
+    }
+}

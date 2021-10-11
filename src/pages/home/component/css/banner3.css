@@ -1,0 +1,32 @@
+.bold-text-3{
+    font-family: Playfair Display;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 80px;
+}
+.light-text-3{
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+.banner3-container{
+    color: lightgrey;
+    padding-bottom: 40px;
+}
+@media screen and (max-width:700px){
+    .bold-text-3{
+        margin-top:30px;
+    }
+    .banner-text-3{
+        padding-right: 40px;
+    }
+}

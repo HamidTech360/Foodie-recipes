@@ -1,0 +1,9 @@
+.appBar{
+    display: none;
+}
+
+@media screen and (max-width:700px){
+    .appBar{
+        display: block;
+    }
+}
