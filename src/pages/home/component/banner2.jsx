@@ -5,7 +5,7 @@ import './css/banner2.css'
 
 const Banner2= ()=>{
     return(
-        <div className="banner2-container" style={{background:`url('./assets/background2.png') center`}}>
+        <div className="banner2-container">
            
                 
                 <div className="row">

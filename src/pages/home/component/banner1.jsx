@@ -4,10 +4,29 @@ import './css/banner1.css'
 
 
 const Banner1= ()=>{
+    const NavBarOptions= [
+        {
+            name:'Home',
+            link:'/',
+            icon:'fa-home'
+        },
+        {
+            name:'Sign up',
+            link:'/signup'
+        },
+        {
+            name:'Login',
+            link:'/login'
+        },
+        {
+            name:'Contact us',
+            link:'#'
+        }
+    ]
     return(
-        <div className="banner1-container" style={{background:`url('./assets/background.jpg')`}}>
+        <div className="banner1-container" style={{}}>
             <div className="overlay ">
-                <NavBar/>
+            <NavBar NavOptions={NavBarOptions} />
                 <div className="row">
                     <div className=" col-lg-6 col-sm-7 col-xs-8 banner-text">
                         <div className="bold-text">Are you ready to join our network?</div>

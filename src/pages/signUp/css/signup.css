@@ -1,5 +1,5 @@
 .side-banner-container{
-    height: 700px;
+    height: fit-content;
 }
 .form-background-overlay{
     height: inherit;
@@ -10,7 +10,7 @@
         display: none;
     }
     .side-form-container{
-        background-image: url('../../../assets/background.jpg');
+        /* background-image: url('../../../assets/background3.jpg'); */
         height: 900px;
 
     }

@@ -21,12 +21,20 @@
 .banner3-container{
     color: lightgrey;
     padding-bottom: 40px;
+    background-image: url('../../../../assets/bg3.png');
+    background-size: cover;
 }
 @media screen and (max-width:700px){
+    .banner3-container{
+        background-position: 70%;
+    }
     .bold-text-3{
         margin-top:30px;
     }
     .banner-text-3{
         padding-right: 40px;
+    }
+    .light-text-3{
+        font-size: 12px;
     }
 }

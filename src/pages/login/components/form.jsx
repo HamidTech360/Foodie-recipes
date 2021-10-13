@@ -4,13 +4,28 @@ import SignUpNavBar from '../../signUp/components/navbar'
 
 
 const Form = ()=>{
+    const NavBarOptions= [
+        {
+            name:'Home',
+            link:'/',
+            icon:'fa-home'
+        },
+        {
+            name:'about',
+            link:'#'
+        },
+        {
+            name:'Contact Us',
+            link:'#'
+        }
+    ]
     return(
         <div className="right-side-form  container">
             <div className="hideOnDesktop">
                 <img src="./assets/logo.png" className="form-logo-on-mobile" alt="" />
             </div>
 
-            <SignUpNavBar/>
+            <SignUpNavBar NavOptions={NavBarOptions} />
 
             <div className="hideOnDesktop hideBoldText">
                     Welcome Back

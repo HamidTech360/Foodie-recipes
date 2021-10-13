@@ -17,7 +17,7 @@ const Home = ()=>{
          
            <Banner1/>
            <div className=" bold-text text-center" id="what-we-offer">
-                Frequently asked Questions
+                What we offer
             </div>
             <CARDS/>
             <Banner2/>

@@ -1,0 +1,40 @@
+.select-box{
+    border: 1px solid lightgrey;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 80px;
+    cursor: pointer;
+}
+.thick-text{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#FF8A48;
+    
+}
+.tiny-text{
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#B6B6B6;
+}
+
+
+@media screen and (max-width:700px){
+    
+    .tiny-text{
+        font-size: 10px;
+    }
+    .select-box{
+        height: 57px;
+    }
+}

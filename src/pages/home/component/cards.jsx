@@ -4,7 +4,7 @@ const CARDS = ()=>{
     return(
        <div className="container">
             <div className="grid  row">
-        <div className="col-lg-4 tab">
+        <div className="col-lg-4 col-md-5 col-sm-5 tab">
             <Card 
                 headingText="Advanced Learning"
                 subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, quisquam voluptatem reprehenderit 
@@ -14,7 +14,7 @@ const CARDS = ()=>{
                 floatActionColor="#FFECE1"
             />
         </div>
-        <div className="col-lg-4 tab">
+        <div className="col-lg-4 col-md-5 col-sm-5 tab">
             <Card 
                 headingText="Access to experts"
                 subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, quisquam voluptatem reprehenderit 
@@ -24,7 +24,7 @@ const CARDS = ()=>{
                 floatActionColor="#F2F4FA"
             />
         </div>
-        <div className="col-lg-4 tab">
+        <div className="col-lg-4 col-md-5 col-sm-5 tab">
             <Card 
                 headingText="Guidance"
                 subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, quisquam voluptatem reprehenderit 
@@ -34,7 +34,7 @@ const CARDS = ()=>{
                 floatActionColor="#E4F7EE"
             />
         </div>
-        <div className="col-lg-4 tab">
+        <div className="col-lg-4 col-md-5 col-sm-5 tab">
             <Card 
                 headingText="Increase your Income"
                 subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, quisquam voluptatem reprehenderit 

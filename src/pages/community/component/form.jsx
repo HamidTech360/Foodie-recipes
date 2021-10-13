@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SignUpNavBar from '../../signUp/components/navbar'
-
+import SelectOptions from './selectCommunity'
 
 const Form = ()=>{
 
@@ -30,15 +30,15 @@ const Form = ()=>{
             <SignUpNavBar NavOptions={NavBarOptions} />
 
             <div className="hideOnDesktop hideBoldText">
-                    Almost Done
+                    Choose your community
             </div>
             <div className="hideOnDesktop hideLightText">
-                Enter the 6 digit code sent to you
+                Your community awaits your arrival
             </div>
 
             
             <div className="form-container container" id="form-container">
-                <div className="text-center sign-up-header">Verification</div>
+                <SelectOptions/>
                 <div className="form-group input-group-lg">
                     <label htmlFor="username">code</label>
                     <input type="text" placeholder="*****" className="form-control   signup-form" style={{fontSize:'12px', padding:'20px'}} />

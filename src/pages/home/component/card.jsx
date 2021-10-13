@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { Fab } from '@material-ui/core'
 import { ArrowRightAlt } from '@material-ui/icons'
 import './css/card.css'
 import 'font-awesome/css/font-awesome.css'
-const Card = ({headingText, subText, icon, iconColor, floatActionColor})=>{
+const Card = ({headingText, subText, icon, iconColor, floatActionColor, isBtn})=>{
     return(
         <div className="card">
             <div className="icon">
@@ -17,11 +18,20 @@ const Card = ({headingText, subText, icon, iconColor, floatActionColor})=>{
             <div className="sub-texts">
                {subText}
             </div>
-            <div className="justify-content-end">
+            {
+                !isBtn?<div className="justify-content-end">
                 <Fab style={{backgroundColor:floatActionColor}}>
-                    <ArrowRightAlt color={'red'} style={{ color:iconColor}}/>
+                    <ArrowRightAlt style={{ color:iconColor}}/>
                 </Fab>
-            </div>
+            </div>:''
+            }
+            {
+                isBtn? <div className="join-now">
+                <Link to ="#" style={{fontSize:'10px'}}>Learn more</Link>
+                <button className="btn float-right pull-right" style={{backgroundColor:iconColor, color:'white'}}>Join Now</button>
+            </div>:''
+            }
+            
         </div>
     )
 }

@@ -1,8 +1,10 @@
 .banner2-container{
-    
+    background-image: url('../../../../assets/background2.png');
     height: 507px;
     color: lightgrey;
     margin-bottom: 10px;
+    background-position: center;
+    background-size: cover;
 }
 .overlay2{
    /* background-image: linear-gradient(to bottom left, black,black,black, transparent);
@@ -26,7 +28,7 @@ body{
     text-align: left;
     margin-bottom: 40px;
     
-   
+    
     padding-top: 100px;
   
     
@@ -39,6 +41,7 @@ body{
     line-height: 31px;
     letter-spacing: 0em;
     text-align: left;
+    padding-right: 20px;
 }
 .trial{
     margin-top: 40px;
@@ -62,7 +65,7 @@ body{
     .light-text-2{
         
         font-family: 'Montserrat', sans-serif;
-        font-size: 15px;
+        font-size: 12px;
         font-style: normal;
         font-weight: 400;
         line-height: 31px;

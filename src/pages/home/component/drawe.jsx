@@ -40,6 +40,7 @@ export default function Drawer({toggleDrawer, state, onClose}) {
             anchor={'bottom'}
             open={state['bottom']}
             onClose={()=>onClose()}
+            onOpen={()=>toggleDrawer('bottom', true)}
             
           >
             {list()}
