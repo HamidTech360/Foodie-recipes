@@ -1,6 +1,8 @@
 import React , {useState} from 'react'
 import { Link } from 'react-router-dom'
-import Joi from 'joi-browser'
+import Joi, { validate } from 'joi-browser'
+import {apiUrl} from '../../../config.json'
+import axios from 'axios'
 import '../css/form.css'
 
 import SignUpNavBar from './navbar'
@@ -47,28 +49,65 @@ const Form = ()=>{
         comfirm_password:''
     })
     const [stateErrors, setStateErrors] = useState({})
+
+    const validateField = ({name, value})=>{
+        const obj = {[name]:value}
+        const fieldSchema = {[name]: schema[name]}
+        const {error} = Joi.validate(obj, fieldSchema)
+
+        return error ? error.details[0].message : null
+    }
     const handleSelection = (e)=>{
 
         const data = {...formData}
         data[e.currentTarget.name] = e.currentTarget.value
         setFormData(data)
-       //console.log(formData);
 
-        // const schema = {[name]:this.schema[name]}
-        // const error = Joi.validate(schema)
+        const errors = {...stateErrors}
+        const errorMessage = validateField(e.currentTarget)
+        if(errorMessage) {
+            errors[e.currentTarget.name] = errorMessage
+        }else{
+            delete errors[e.currentTarget.name]
+        }  
+
+        setStateErrors(errors)    
     }
-    const handleSubmit = (e)=>{
-        e.preventDefault()
+    const Validate = ()=>{
         const {error} = Joi.validate(formData, schema, {abortEarly:false})
-        if(!error) return null
+        if(!error) return null;
        // console.log(error);
         const errors = {}
         for(let item of error.details){
             errors[item.path[0]] = item.message
-            setStateErrors(errors)
+           
         }
-        console.log(errors);
-        console.log(stateErrors);
+        return errors
+    }
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        const errors = Validate()
+        if(!errors){
+            const data= new FormData ()
+            data.append('username', stateData.username)
+            data.append('email', stateData.email)
+            data.append('phone', stateData.phone)
+            data.append('password', stateData.password)
+
+            try{
+                let response = axios.post(`${apiUrl}/signup`, formData, {headers:{
+                    'content-type':'multipart/form-data'
+                }})
+                console.log(response);
+            }catch(error){
+                alert('Something went wrong. Please try again')
+            }
+        }
+        setStateErrors(errors||{})
+        
+
+        // console.log(stateErrors);
+
     }
 
     return(
