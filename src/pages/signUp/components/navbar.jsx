@@ -62,7 +62,7 @@ const NavBar = ({NavOptions})=>{
             {NavOptions.map((item, index) => {
               
                 return(
-               <>
+               
                 <ListItem button key={index}  >
                   <ListItemIcon>
                       {/* <i className={`fa ${item.icon} fa-1x`}  style={{color:'white'}}></i> */}
@@ -74,7 +74,7 @@ const NavBar = ({NavOptions})=>{
                   {/* <hr style= {{border:'2px solid grey'}} /> */}
               </ListItem>
               
-               </>
+               
                 )
               
               } )}

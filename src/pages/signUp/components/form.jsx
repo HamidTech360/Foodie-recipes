@@ -84,18 +84,18 @@ const Form = ()=>{
         }
         return errors
     }
-    const handleSubmit = (e)=>{
+    const handleSubmit = async (e)=>{
         e.preventDefault()
         const errors = Validate()
         if(!errors){
             const data= new FormData ()
-            data.append('username', stateData.username)
-            data.append('email', stateData.email)
-            data.append('phone', stateData.phone)
-            data.append('password', stateData.password)
+            data.append('username', formData.username)
+            data.append('email', formData.email)
+            data.append('phone', formData.phone)
+            data.append('password', formData.password)
 
             try{
-                let response = axios.post(`${apiUrl}/signup`, formData, {headers:{
+                let response = await axios.post(`${apiUrl}/signup`, formData, {headers:{
                     'content-type':'multipart/form-data'
                 }})
                 console.log(response);
