@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Joi from 'joi-browser'
@@ -32,6 +32,20 @@ const NavBarOptions= [
 ]
 
 const Form = ()=>{
+
+    useEffect(()=>{
+      try{
+            async function getCountries (){
+                const countries = await axios.get(`${apiUrl}/meta/countries`)
+                console.log(countries);
+            }
+            getCountries()
+      }catch(error){
+          console.log(error);
+          alert('something is wrong')
+      }
+    }, [])
+
     const schema = {
         username: Joi.string().required().label("Username"),
         email:Joi.string().required().email({minDomainSegments:2, tlds:{allow:['com', 'net']}}),
@@ -100,7 +114,7 @@ const Form = ()=>{
             data.append('phone', formData.phone)
             data.append('password', formData.password)
             data.append('confirmPassword', formData.comfirm_password)
-            data.append('country', 'Nigeria')
+            data.append('country', 'country_2f599c3022')
             
             try{
                 let response = await axios.post(`${apiUrl}/signup`, data, {headers:{
@@ -139,50 +153,52 @@ const Form = ()=>{
             <div className="form-container container" id="form-container">
                 <div className="text-center sign-up-header">Sign up</div>
                 
-                <div className="form-group">
-                    <label htmlFor="username">Username</label>
-                    <input style={{border:stateErrors.username?'1px solid red':''}} name="username" onChange={(e)=>handleSelection(e)} type="text" className="form-control signup-form " placeholder="user1234" />
-                    {stateErrors.username? <span className="error_message">{stateErrors.username}</span>:''}
-               </div>
+                <form method="post" onSubmit={(e)=>handleSubmit(e)}>
+                        <div className="form-group">
+                            <label htmlFor="username">Username</label>
+                            <input style={{border:stateErrors.username?'1px solid red':''}} name="username" onChange={(e)=>handleSelection(e)} type="text" className="form-control signup-form " placeholder="user1234" />
+                            {stateErrors.username? <span className="error_message">{stateErrors.username}</span>:''}
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor="Email Address">Email Address</label>
-                    <input style={{border:stateErrors.email?'1px solid red ':''}} name="email" onChange={(e)=>handleSelection(e)} type="email" className="form-control signup-form" placeholder="user@example.com" />
-                    {stateErrors.email? <span className="error_message">{stateErrors.email}</span>:''}
-                </div>
+                        <div className="form-group">
+                            <label htmlFor="Email Address">Email Address</label>
+                            <input style={{border:stateErrors.email?'1px solid red ':''}} name="email" onChange={(e)=>handleSelection(e)} type="email" className="form-control signup-form" placeholder="user@example.com" />
+                            {stateErrors.email? <span className="error_message">{stateErrors.email}</span>:''}
+                        </div>
 
-                <div className="form-group">
-                    <label htmlFor="Phone">Phone</label>
-                   <div className="row">
-                       <div className="flag col-2 signup-form"  style={{backgroundColor:'#EDEDED', marginRight:'-12px',paddingBottom:'0px', paddingTop:'0px' }}> <img src="./assets/man.jpg" alt="" style={{height:'20px', width:'20px'}} /> </div>
-                       <div className="col-2 signup-form">
-                            <select name="" id="" className="signup-for" style={{backgroundColor:'#EDEDED', overflow:'hide', fontSize:'8px', marginLeft:'0px', border:'0px'}}>
-                                <option value=""> +234 </option>
-                            </select>
-                       </div>
-                       <div className="col-8">
-                         <input style={{border:stateErrors.phone?'1px solid red':'green'}} name="phone" onChange={(e)=>handleSelection(e)} type="number" className="form-control signup-form" placeholder="+234" />
+                        <div className="form-group">
+                            <label htmlFor="Phone">Phone</label>
+                        <div className="row">
+                            <div className="flag col-2 signup-form"  style={{backgroundColor:'#EDEDED', marginRight:'-12px',paddingBottom:'0px', paddingTop:'0px' }}> <img src="./assets/man.jpg" alt="" style={{height:'20px', width:'20px'}} /> </div>
+                            <div className="col-2 signup-form">
+                                    <select name="" id="" className="signup-for" style={{backgroundColor:'#EDEDED', overflow:'hide', fontSize:'12px', marginLeft:'0px', border:'0px'}}>
+                                        <option value=""> +234 </option>
+                                    </select>
+                            </div>
+                            <div className="col-8">
+                                <input style={{border:stateErrors.phone?'1px solid red':'green'}} name="phone" onChange={(e)=>handleSelection(e)} type="number" className="form-control signup-form" placeholder="+234" />
+                                
+                            </div>
                         
-                       </div>
-                   
-                    
-                   </div>
-                   {stateErrors.phone? <span className="error_message">{stateErrors.phone}</span>:''}
-                </div>
+                            
+                        </div>
+                        {stateErrors.phone? <span className="error_message">{stateErrors.phone}</span>:''}
+                        </div>
 
-                <div className="form-group">
-                    <label htmlFor="Password">Password</label>
-                    <input style={{border:stateErrors.password?'1px solid red':''}} name="password" onChange={(e)=>handleSelection(e)} type="password" className="form-control signup-form" placeholder="*******" />
-                    {stateErrors.password? <span className="error_message">{stateErrors.password}</span>:''}
-                </div>
+                        <div className="form-group">
+                            <label htmlFor="Password">Password</label>
+                            <input style={{border:stateErrors.password?'1px solid red':''}} name="password" onChange={(e)=>handleSelection(e)} type="password" className="form-control signup-form" placeholder="*******" />
+                            {stateErrors.password? <span className="error_message">{stateErrors.password}</span>:''}
+                        </div>
 
-                <div className="form-group">
-                    <label htmlFor="Confirm Password">Confirm Password</label>
-                    <input style={{border:stateErrors.comfirm_password?'1px solid red':''}} name="comfirm_password" onChange={(e)=>handleSelection(e)} type="password" className="form-control signup-form" placeholder="**********" />
-                    {stateErrors.comfirm_password? <span className="error_message">{stateErrors.comfirm_password}</span>:''}
-                </div>
+                        <div className="form-group">
+                            <label htmlFor="Confirm Password">Confirm Password</label>
+                            <input style={{border:stateErrors.comfirm_password?'1px solid red':''}} name="comfirm_password" onChange={(e)=>handleSelection(e)} type="password" className="form-control signup-form" placeholder="**********" />
+                            {stateErrors.comfirm_password? <span className="error_message">{stateErrors.comfirm_password}</span>:''}
+                        </div>
 
-                <button onClick={(e)=>handleSubmit(e)} className=" btn-signUp btn btn-lg btn-block" style={{width:'100%'}}>{showProgress? <CircularProgress size={20} /> :'Start your 7-days trial '}</button>
+                        <button  className=" btn-signUp btn btn-lg btn-block" style={{width:'100%'}}>{showProgress? <CircularProgress size={20} /> :'Start your 7-days trial '}</button>
+                </form>
 
                 <div className="query text-center">
                     Already have an account? <Link to="/login"> Login</Link>
