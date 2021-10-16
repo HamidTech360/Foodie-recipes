@@ -5,18 +5,16 @@ import { List } from '@material-ui/core';
 
 
 import {ListItemText} from '@material-ui/core';
-import { Divider } from '@material-ui/core';
+
 import { Collapse } from '@material-ui/core';
 // import Collapse from '@mui/material/Collapse';
 
 import './css/flatlist.css'
 
 export default function NestedList() {
-  const [open, setOpen] = React.useState(false);
+  const [open] = React.useState(false);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+
 
   return (
     <List
@@ -30,7 +28,7 @@ export default function NestedList() {
           What is Next stage Lab
           <span className="justify-content-end float-right pull-right add" data-target="#collapse1">+</span>
         </ListSubheader>
-        <div id="collapse1" class="collapse">
+        <div id="collapse1" className="collapse">
           lorem30
         </div>
      

@@ -1,6 +1,7 @@
 import React , {useState} from 'react'
 import { Link } from 'react-router-dom'
-import Joi, { validate } from 'joi-browser'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import Joi from 'joi-browser'
 import {apiUrl} from '../../../config.json'
 import axios from 'axios'
 import '../css/form.css'
@@ -49,6 +50,9 @@ const Form = ()=>{
         comfirm_password:''
     })
     const [stateErrors, setStateErrors] = useState({})
+    const [showProgress, setShowProgress] = useState(false)
+
+
 
     const validateField = ({name, value})=>{
         const obj = {[name]:value}
@@ -86,21 +90,28 @@ const Form = ()=>{
     }
     const handleSubmit = async (e)=>{
         e.preventDefault()
+        console.log(formData);
         const errors = Validate()
         if(!errors){
-            const data= new FormData ()
+            setShowProgress(true)
+            let data= new FormData ()
             data.append('username', formData.username)
             data.append('email', formData.email)
             data.append('phone', formData.phone)
             data.append('password', formData.password)
-
+            data.append('confirmPassword', formData.comfirm_password)
+            data.append('country', 'Nigeria')
+            
             try{
                 let response = await axios.post(`${apiUrl}/signup`, formData, {headers:{
                     'content-type':'multipart/form-data'
                 }})
+                
                 console.log(response);
             }catch(error){
                 alert('Something went wrong. Please try again')
+                console.log(error);
+                setShowProgress(false)
             }
         }
         setStateErrors(errors||{})
@@ -171,7 +182,7 @@ const Form = ()=>{
                     {stateErrors.comfirm_password? <span className="error_message">{stateErrors.comfirm_password}</span>:''}
                 </div>
 
-                <button onClick={(e)=>handleSubmit(e)} className="btn btn-signUp form-control">Start your 7-days trial</button>
+                <button onClick={(e)=>handleSubmit(e)} className=" btn-signUp btn btn-lg btn-block" style={{width:'100%'}}>{showProgress? <CircularProgress size={20} /> :'Start your 7-days trial '}</button>
 
                 <div className="query text-center">
                     Already have an account? <Link to="/login"> Login</Link>

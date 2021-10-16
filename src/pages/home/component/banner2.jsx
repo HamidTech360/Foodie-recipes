@@ -26,8 +26,6 @@ const Banner2= ()=>{
     )
 }
 
-const appBar = {
-    backgroundColor:'unset'
-}
+
 
 export default Banner2

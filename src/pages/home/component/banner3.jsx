@@ -1,5 +1,4 @@
 import React from 'react'
-import NavBar from './navbar'
 import './css/banner3.css'
 
 
@@ -28,8 +27,5 @@ const Banner3= ()=>{
     )
 }
 
-const appBar = {
-    backgroundColor:'unset'
-}
 
 export default Banner3

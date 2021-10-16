@@ -9,9 +9,7 @@ import '../../home/component/css/navbar.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -67,10 +65,10 @@ const NavBar = ({NavOptions})=>{
                   <ListItemIcon>
                       {/* <i className={`fa ${item.icon} fa-1x`}  style={{color:'white'}}></i> */}
                   </ListItemIcon>
-                  <Link to ={item.link}>
-                    <ListItemText primary={item.name} style={{color:'white', textDecorationLine:'none'}}/>
+                  <Link to ={item.link}  style={{color:'white', textDecorationLine:'none'}}>
+                    <ListItemText primary={item.name}/>
                   </Link>
-                  <Divider/>
+                
                   {/* <hr style= {{border:'2px solid grey'}} /> */}
               </ListItem>
               

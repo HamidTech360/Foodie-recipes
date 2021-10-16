@@ -12,12 +12,12 @@ const Form = ()=>{
             icon:'fa-whatsapp'
         },
         {
-            name:'about',
-            link:'#'
+            name:'Sign Up',
+            link:'/signup'
         },
         {
-            name:'Contact Us',
-            link:'#'
+            name:'Login',
+            link:'/login'
         }
     ]
 
@@ -45,7 +45,7 @@ const Form = ()=>{
                 </div>
 
             
-                <button className="btn btn-signUp form-control">login</button>
+                <button className="btn btn-signUp btn-lg btn-block" style={{width:'100%'}}>login</button>
 
                 <div className="query text-center">
                     Didn't get a code? <Link to="/login"> Resend</Link>

@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './component/css/home.css'
 
-import FixedAppBar from './component/appBar'
+
 import Banner1 from './component/banner1'
 import CARDS from './component/cards'
 import Banner2 from './component/banner2'
@@ -32,8 +32,6 @@ const Home = ()=>{
     )
 }
 
-const appBar = {
-    backgroundColor:'unset'
-}
+
 
 export default Home

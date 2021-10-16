@@ -4,7 +4,7 @@ const SideBanner = ({boldText, lightText})=>{
     return(
         <div className="side-banner" style={{background:`url('./assets/background3.jpg')`}}>
           
-                 <img src="./assets/logo2.png"  className="logo float-left" />
+                 <img src="./assets/logo2.png"  className="logo float-left" alt="logo" />
                  <div className="side-text">
                     <div className="side-bold-text">
                         {boldText}

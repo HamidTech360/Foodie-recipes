@@ -5,6 +5,7 @@ import SignUp from './pages/signUp/signup'
 import Login from './pages/login/login';
 import VerifyEmail from './pages/verifyEmail/verify_email';
 import Community from './pages/community/community';
+import DashBoard from './pages/dashboard/dashboard';
 
 class App extends Component {
 
@@ -17,7 +18,9 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path ="/verify_email" component={VerifyEmail}/>
               <Route path="/community" component={Community} />
+              <Route path="/dashboard" component={DashBoard}/>
               <Route path="/" component={Home} />
+              
           </Switch>
       </BrowserRouter>
     )

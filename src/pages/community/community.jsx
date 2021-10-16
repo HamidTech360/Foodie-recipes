@@ -1,6 +1,5 @@
 import React from 'react'
 import SideBanner from '../signUp/components/side'
-import Form from './component/form'
 import SelectOptions from './component/selectCommunity'
 
 const Community = ()=>{

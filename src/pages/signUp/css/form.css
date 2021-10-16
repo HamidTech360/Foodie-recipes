@@ -40,7 +40,9 @@ label{
     background-color: black;
     color: whitesmoke;
     padding: 5px;
+    width:100%;
 }
+
 .signup-nav{
     font-weight: bolder;
 }
@@ -100,7 +102,9 @@ label{
     .hideOnDesktop{
         display: block;
     }
-    
+    .alert-danger{
+        font-size: 12px;
+    }
 }
 
 @media screen and (min-width:561px) and (max-width:800px){
