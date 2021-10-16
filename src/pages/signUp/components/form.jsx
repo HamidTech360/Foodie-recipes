@@ -103,7 +103,7 @@ const Form = ()=>{
             data.append('country', 'Nigeria')
             
             try{
-                let response = await axios.post(`${apiUrl}/signup`, formData, {headers:{
+                let response = await axios.post(`${apiUrl}/signup`, data, {headers:{
                     'content-type':'multipart/form-data'
                 }})
                 
