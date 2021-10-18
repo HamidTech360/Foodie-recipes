@@ -80,6 +80,25 @@ label{
     font-size: 12px;
     color: red;
 }
+.flag{
+    display: flex;
+    flex-direction: row;
+    background-color:#EDEDED;
+   
+    align-items: center;
+    padding-right: 10px;
+    font-size: 11px;
+}
+.country-options{
+    font-size: 12px;
+}
+.flag-img{
+    height: 15px;
+    width: 15px;
+}
+.select-country{
+    width: 300px;
+}
 @media screen and (max-width:560px) {
     label{
         font-size: 12px;

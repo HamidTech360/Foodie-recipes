@@ -1,10 +1,12 @@
 import React , {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import { Popover } from '@material-ui/core'
 import Joi from 'joi-browser'
 import {apiUrl} from '../../../config.json'
 import axios from 'axios'
 import '../css/form.css'
+
 
 import SignUpNavBar from './navbar'
 
@@ -31,49 +33,73 @@ const NavBarOptions= [
     }
 ]
 
+
 const Form = ()=>{
 
+        //                        axnkjnvkihnvjgvjegjemcountryCode: "+234"
+        // createdAt: "2021-10-07T19:21:44.751Z"
+        // flag: "https://res.cloudinary.com/devtenotea/image/upload/v1633634504/lxerqaq7mq1qeixbzokr.png"
+        // id: "country_2f599c3022"
+        // length: 10
+        // name: "Nigeria"
+        // regionalCode: "NG"
+    const [countries, setCountries]= useState([])
+    const [selectedCountry, setSelectedCountry] = useState({})
     useEffect(()=>{
       try{
             async function getCountries (){
-                const countries = await axios.get(`${apiUrl}/meta/countries`)
-                console.log(countries);
+                const response = await axios.get(`${apiUrl}/meta/countries`)
+                //console.log(response.data.data);
+                setCountries(response.data.data)
+                // setSelectedCountry(response.data.data[0])
+                
             }
             getCountries()
+            
       }catch(error){
           console.log(error);
           alert('something is wrong')
       }
-    }, [])
+      
+     
+    })
 
     const schema = {
         username: Joi.string().required().label("Username"),
         email:Joi.string().required().email({minDomainSegments:2, tlds:{allow:['com', 'net']}}),
         phone:Joi.string().label('Phone Number').required(),
         password: Joi.string().required().min(8),
-        comfirm_password: Joi.ref('password')
-        
+        comfirm_password: Joi.ref('password'),
+     
     }
 
-    
+   
     const [formData, setFormData] = useState({
         username:'',
         email:'',
         phone:'',
         password:'',
-        comfirm_password:''
+        comfirm_password:''    
     })
+
+   
     const [stateErrors, setStateErrors] = useState({})
     const [showProgress, setShowProgress] = useState(false)
 
 
 
     const validateField = ({name, value})=>{
-        const obj = {[name]:value}
-        const fieldSchema = {[name]: schema[name]}
-        const {error} = Joi.validate(obj, fieldSchema)
+       
+        try{
+            const obj = {[name]:value}
+            const fieldSchema = {[name]: schema[name]}
+            const {error} = Joi.validate(obj, fieldSchema)
 
-        return error ? error.details[0].message : null
+            return error ? error.details[0].message : null
+        }catch(error){
+            console.log('unable to validate');
+        }
+        
     }
     const handleSelection = (e)=>{
 
@@ -91,7 +117,10 @@ const Form = ()=>{
 
         setStateErrors(errors)    
     }
+ 
+
     const Validate = ()=>{
+      try{
         const {error} = Joi.validate(formData, schema, {abortEarly:false})
         if(!error) return null;
        // console.log(error);
@@ -101,6 +130,9 @@ const Form = ()=>{
            
         }
         return errors
+      }catch(error){
+          console.log(error);
+      }
     }
     const handleSubmit = async (e)=>{
         e.preventDefault()
@@ -118,7 +150,7 @@ const Form = ()=>{
             
             try{
                 let response = await axios.post(`${apiUrl}/signup`, data, {headers:{
-                    'content-type':'multipart/form-data'
+                    'content-Type':'application/x-www-form-urlencoded'
                 }})
                 
                 console.log(response);
@@ -135,7 +167,31 @@ const Form = ()=>{
 
     }
 
+    const handleSelectCountry=(item)=>{
+        console.log(item);
+        setSelectedCountry(item)
+        console.log(selectedCountry);
+        setAnchorEl(null);
+    }
+
+
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+
+
     return(
+
+        
         <div className="right-side-form  container">
            
             <div className="hideOnDesktop">
@@ -169,14 +225,38 @@ const Form = ()=>{
                         <div className="form-group">
                             <label htmlFor="Phone">Phone</label>
                         <div className="row">
-                            <div className="flag col-2 signup-form"  style={{backgroundColor:'#EDEDED', marginRight:'-12px',paddingBottom:'0px', paddingTop:'0px' }}> <img src="./assets/man.jpg" alt="" style={{height:'20px', width:'20px'}} /> </div>
-                            <div className="col-2 signup-form">
-                                    <select name="" id="" className="signup-for" style={{backgroundColor:'#EDEDED', overflow:'hide', fontSize:'12px', marginLeft:'0px', border:'0px'}}>
-                                        <option value=""> +234 </option>
-                                    </select>
+                            <div className="flag col-4" onClick={handleClick} aria-describedby={id}>
+                                
+                                 <img src={selectedCountry.flag? selectedCountry.flag:'./assets/nigeriaflag.png'} alt="flag" className="flag-img" /> 
+                                 <i className="fa fa-caret-down" style={{marginRight:'5px', marginLeft:'5px'}}></i>
+                                 <span className="country_name">{selectedCountry.countryCode? selectedCountry.countryCode:'+234'}</span>
+
+
+                               
                             </div>
-                            <div className="col-8">
-                                <input style={{border:stateErrors.phone?'1px solid red':'green'}} name="phone" onChange={(e)=>handleSelection(e)} type="number" className="form-control signup-form" placeholder="+234" />
+
+                            <Popover
+                                    id={id}
+                                    open={open}
+                                    anchorEl={anchorEl}
+                                    onClose={handleClose}
+                                    anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                    }}
+                                >
+                                    <ul className="list-group select-country">
+                                        {countries.map((el, index)=>
+                                                <li className="list-group-item country-options" onClick={()=>handleSelectCountry(el)} key={index}>
+                                                    <img src={el.flag? el.flag:''} className="flag-img" alt="" />
+                                                    <span className="pull-right">{el.name? el.name:''}</span>
+                                                </li>
+                                        )}
+                                    </ul>
+                             </Popover>
+                           
+                            <div className="col-7">
+                                <input style={{border:stateErrors.phone?'1px solid red':'green'}} name="phone" onChange={(e)=>handleSelection(e)} type="number" className="form-control signup-form"/>
                                 
                             </div>
                         
