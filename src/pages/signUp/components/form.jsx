@@ -73,7 +73,7 @@ const Form = (props)=>{
         email:Joi.string().required().email({minDomainSegments:2, tlds:{allow:['com', 'net']}}),
         phone:Joi.string().label('Phone Number').required(),
         password: Joi.string().required().min(8),
-        confirmPassword: Joi.ref('password'),
+        confirmPassword: Joi.string().required()
      
     }
 
@@ -147,8 +147,6 @@ const Form = (props)=>{
     const handleSubmit = async (e)=>{
         
         e.preventDefault()
-       
-     
         console.log(formData);
         const errors = Validate()
         let countryId = selectedCountry.id? selectedCountry.id:'country_2f599c3022'
@@ -160,11 +158,15 @@ const Form = (props)=>{
                 let response = await axios.post(`${apiUrl}/signup`,{...formData, 'country':countryId})
                 
                 console.log(response.data.success);
+
                 if(response.data.success){
+                    localStorage.clear()
+                    localStorage.setItem('Auth_token', response.data.data.authorizationToken)
+                    localStorage.setItem('user_email', response.data.data.user.email)
                     history.push('/verify_email')
                 }
             }catch(error){
-                alert('Something went wrong. Please try again')
+                //alert('Something went wrong. Please try again')
                 setBackendError(error.response?.data)
                 console.log(error.response?.data);
                 setShowProgress(false)

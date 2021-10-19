@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import '../css/select.css'
 import SignUpNavBar from '../../signUp/components/navbar'
 import { ArrowForwardIos } from '@material-ui/icons'
+import { Box } from '@material-ui/core'
+
 const SelectOptions = ()=>{
 
     const [selectOptions, setSelectOptions] = useState([
@@ -72,13 +74,13 @@ const SelectOptions = ()=>{
             <div className="form-container container">
             <div className="sign-up-header" style={{color:'#707070', fontSize:'15px'}}>Choose a community</div>
                 {selectOptions.map((item, index)=>
-                    <div className="row select-box" key={item.id} onClick={()=>handleSelection(item)} style={{borderColor:item.isSelected?item.color:''}} >
+                <Box className="row select-box" key={item.id} onClick={()=>handleSelection(item)} style={{borderColor:item.isSelected?item.color:''}} >
                      <div className="col-10">
                          <div className="thick-text" style={{color:item.color}}>{item.thickText}</div>
                          <div className="tiny-text">Charges start at $5/month</div>
                      </div>
                      <div className="col-2"><ArrowForwardIos style={{color:item.color}} /></div>
-                 </div>
+                 </Box>
                 )}
                
                 

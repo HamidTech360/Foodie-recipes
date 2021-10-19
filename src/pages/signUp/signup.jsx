@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SideBanner from './components/side'
 import Form from './components/form'
 import './css/signup.css'
 
 const SignUp = ()=>{
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
     return(
         <div className="row">
             <div className="col-lg-6 col-md-5 col-sm-5  side-banner-container col-xs-0">

@@ -99,7 +99,7 @@ label{
 .select-country{
     width: 300px;
 }
-.alert-danger{
+.alert-danger,.alert-success{
     font-size: 12px;
 }
 @media screen and (max-width:560px) {

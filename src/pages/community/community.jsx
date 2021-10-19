@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import SideBanner from '../signUp/components/side'
 import SelectOptions from './component/selectCommunity'
 
 const Community = ()=>{
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
     return(
         <div className="row">
             <div className="col-lg-5 col-md-5 col-sm-5  side-banner-container col-xs-0">

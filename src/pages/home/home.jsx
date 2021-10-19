@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './component/css/home.css'
 
@@ -12,6 +12,9 @@ import NestedList from './component/flatlist'
 import Footer from './component/footer'
 
 const Home = ()=>{
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
     return(
         <div className="containe">
          

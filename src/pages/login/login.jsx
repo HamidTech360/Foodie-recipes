@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SideBanner from '../signUp/components/side'
 import Form from './components/form'
 const Login = ()=>{
-
+     useEffect(()=>{
+        window.scrollTo(0,0)
+     },[])   
 
     return(
         <div className="row">

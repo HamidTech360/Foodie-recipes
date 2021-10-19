@@ -8,7 +8,7 @@
 }
 .thick-text{
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 600;
     line-height: 22px;
@@ -33,6 +33,9 @@
     
     .tiny-text{
         font-size: 10px;
+    }
+    .thick-text{
+        font-size: 14px;
     }
     .select-box{
         height: 57px;
