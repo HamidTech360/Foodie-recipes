@@ -99,6 +99,9 @@ label{
 .select-country{
     width: 300px;
 }
+.alert-danger{
+    font-size: 12px;
+}
 @media screen and (max-width:560px) {
     label{
         font-size: 12px;
@@ -122,7 +125,7 @@ label{
         display: block;
     }
     .alert-danger{
-        font-size: 12px;
+        font-size: 11px;
     }
 }
 

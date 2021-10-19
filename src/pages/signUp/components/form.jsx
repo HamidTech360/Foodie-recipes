@@ -1,11 +1,12 @@
 import React , {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { Popover } from '@material-ui/core'
 import Joi from 'joi-browser'
 import {apiUrl} from '../../../config.json'
 import axios from 'axios'
 import '../css/form.css'
+
 
 
 import SignUpNavBar from './navbar'
@@ -34,7 +35,8 @@ const NavBarOptions= [
 ]
 
 
-const Form = ()=>{
+const Form = (props)=>{
+    let history =  useHistory()
 
         //                        axnkjnvkihnvjgvjegjemcountryCode: "+234"
         // createdAt: "2021-10-07T19:21:44.751Z"
@@ -45,14 +47,16 @@ const Form = ()=>{
         // regionalCode: "NG"
     const [countries, setCountries]= useState([])
     const [selectedCountry, setSelectedCountry] = useState({})
+    const [BackendError, setBackendError] = useState(null)
     useEffect(()=>{
+        
       try{
             async function getCountries (){
                 const response = await axios.get(`${apiUrl}/meta/countries`)
                 //console.log(response.data.data);
                 setCountries(response.data.data)
                 // setSelectedCountry(response.data.data[0])
-                
+             
             }
             getCountries()
             
@@ -69,7 +73,7 @@ const Form = ()=>{
         email:Joi.string().required().email({minDomainSegments:2, tlds:{allow:['com', 'net']}}),
         phone:Joi.string().label('Phone Number').required(),
         password: Joi.string().required().min(8),
-        comfirm_password: Joi.ref('password'),
+        confirmPassword: Joi.ref('password'),
      
     }
 
@@ -79,7 +83,7 @@ const Form = ()=>{
         email:'',
         phone:'',
         password:'',
-        comfirm_password:''    
+        confirmPassword:''    
     })
 
    
@@ -117,7 +121,12 @@ const Form = ()=>{
 
         setStateErrors(errors)    
     }
- 
+    const handlePhoneNumber = (e)=>{
+       
+        const data = {...formData}
+        data[e.currentTarget.name] =  (e.currentTarget.value).replace(/^0+/, '')
+        setFormData(data)
+    }
 
     const Validate = ()=>{
       try{
@@ -134,29 +143,30 @@ const Form = ()=>{
           console.log(error);
       }
     }
+    
     const handleSubmit = async (e)=>{
+        
         e.preventDefault()
+       
+     
         console.log(formData);
         const errors = Validate()
+        let countryId = selectedCountry.id? selectedCountry.id:'country_2f599c3022'
         if(!errors){
             setShowProgress(true)
-            let data= new FormData ()
-            data.append('username', formData.username)
-            data.append('email', formData.email)
-            data.append('phone', formData.phone)
-            data.append('password', formData.password)
-            data.append('confirmPassword', formData.comfirm_password)
-            data.append('country', 'country_2f599c3022')
-            
+      
+
             try{
-                let response = await axios.post(`${apiUrl}/signup`, data, {headers:{
-                    'content-Type':'application/x-www-form-urlencoded'
-                }})
+                let response = await axios.post(`${apiUrl}/signup`,{...formData, 'country':countryId})
                 
-                console.log(response);
+                console.log(response.data.success);
+                if(response.data.success){
+                    history.push('/verify_email')
+                }
             }catch(error){
                 alert('Something went wrong. Please try again')
-                console.log(error);
+                setBackendError(error.response?.data)
+                console.log(error.response?.data);
                 setShowProgress(false)
             }
         }
@@ -166,6 +176,9 @@ const Form = ()=>{
         // console.log(stateErrors);
 
     }
+
+
+    //Country Selection 
 
     const handleSelectCountry=(item)=>{
         console.log(item);
@@ -193,7 +206,7 @@ const Form = ()=>{
 
         
         <div className="right-side-form  container">
-           
+            
             <div className="hideOnDesktop">
                 <img src="./assets/logo.png" className="form-logo-on-mobile" alt="" />
             </div>
@@ -208,13 +221,13 @@ const Form = ()=>{
 
             <div className="form-container container" id="form-container">
                 <div className="text-center sign-up-header">Sign up</div>
-                
+                {BackendError?  <div className="alert alert-danger">{BackendError.message} <i className="fa fa-window-close fa-1x pull-right"></i></div>:''}
                 <form method="post" onSubmit={(e)=>handleSubmit(e)}>
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
                             <input style={{border:stateErrors.username?'1px solid red':''}} name="username" onChange={(e)=>handleSelection(e)} type="text" className="form-control signup-form " placeholder="user1234" />
                             {stateErrors.username? <span className="error_message">{stateErrors.username}</span>:''}
-                    </div>
+                        </div>
 
                         <div className="form-group">
                             <label htmlFor="Email Address">Email Address</label>
@@ -256,7 +269,7 @@ const Form = ()=>{
                              </Popover>
                            
                             <div className="col-7">
-                                <input style={{border:stateErrors.phone?'1px solid red':'green'}} name="phone" onChange={(e)=>handleSelection(e)} type="number" className="form-control signup-form"/>
+                                <input style={{border:stateErrors.phone?'1px solid red':'green'}} name="phone" onChange={(e)=>handlePhoneNumber(e)} type="number" className="form-control signup-form"/>
                                 
                             </div>
                         
@@ -273,10 +286,12 @@ const Form = ()=>{
 
                         <div className="form-group">
                             <label htmlFor="Confirm Password">Confirm Password</label>
-                            <input style={{border:stateErrors.comfirm_password?'1px solid red':''}} name="comfirm_password" onChange={(e)=>handleSelection(e)} type="password" className="form-control signup-form" placeholder="**********" />
-                            {stateErrors.comfirm_password? <span className="error_message">{stateErrors.comfirm_password}</span>:''}
+                            <input style={{border:stateErrors.confirmPassword?'1px solid red':''}} name="confirmPassword" onChange={(e)=>handleSelection(e)} type="password" className="form-control signup-form" placeholder="**********" />
+                            {stateErrors.confirmPassword? <span className="error_message">{stateErrors.confirmPassword}</span>:''}
                         </div>
 
+                        
+                        {BackendError?  <div className="alert alert-danger">{BackendError.message} <i className="fa fa-window-close fa-1x pull-right"></i></div>:''}
                         <button  className=" btn-signUp btn btn-lg btn-block" style={{width:'100%'}}>{showProgress? <CircularProgress size={20} /> :'Start your 7-days trial '}</button>
                 </form>
 
