@@ -50,7 +50,7 @@ const Form = ()=>{
         }catch(error){
                 setBackendError(error.response?.data)
                 console.log(error.response?.data);
-                if( error.response?.data.message == 'Email already verified'){
+                if( error.response?.data.message === 'Email already verified'){
                     alert('verified')
                     history.push('/community')
                 }
