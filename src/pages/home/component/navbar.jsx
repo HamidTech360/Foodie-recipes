@@ -108,7 +108,11 @@ const NavBar = ({NavOptions})=>{
                 <li className="nav-item"><Link to="/" className="nav-link" style={{color:'white', fontSize:'12px'}}>Home</Link></li>
                 <li className="nav-item"><Link to="/signup" className="nav-link" style={{color:'white', fontSize:'12px'}}> SignUp</Link></li>
                 <li className="nav-item"><Link to="/login" className="nav-link" style={{color:'white', fontSize:'12px'}}> Login</Link></li>
-                <li className="nav-item"><Link to="#" className="nav-link" style={{color:'white', fontSize:'12px'}}> <button className="btn btn-primary" style={{borderRadius:'50px'}}>Get started</button></Link></li>
+                <li className="nav-item">
+                  <Link to="/signup" className="nav-link" style={{color:'white', fontSize:'12px'}}>
+                      <button href="/dashboard" className="btn btn-primary" style={{borderRadius:'50px'}}>Get started</button>
+                   </Link>
+                 </li>
             </ul>
 
         </div>

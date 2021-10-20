@@ -1,56 +1,48 @@
 import * as React from 'react';
-import {ListSubheader} from '@material-ui/core';
-
-import { List } from '@material-ui/core';
-
-
-import {ListItemText} from '@material-ui/core';
-
-import { Collapse } from '@material-ui/core';
-// import Collapse from '@mui/material/Collapse';
+import { Accordion } from '@material-ui/core';
+import { AccordionSummary } from '@material-ui/core';
+import { AccordionDetails } from '@material-ui/core';
+import { ExpandMore } from '@material-ui/icons';
 
 import './css/flatlist.css'
 
-export default function NestedList() {
-  const [open] = React.useState(false);
-
-
-
+export default function SimpleAccordion() {
   return (
-    <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
+    <div>
+      <Accordion >
+        <AccordionSummary
+          expandIcon={<ExpandMore />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <div className="list-title">WHat is Next Stage lab</div>
+        </AccordionSummary>
+        <AccordionDetails>
+          <div className="list-details">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </div>
+        </AccordionDetails>
+      </Accordion>
 
-    >
-      
-        <ListSubheader component="div" id="nested-list-subheader" style={{backgroundColor:'white', marginBottom:'10px', padding:'10px'}}>
-          What is Next stage Lab
-          <span className="justify-content-end float-right pull-right add" data-target="#collapse1">+</span>
-        </ListSubheader>
-        <div id="collapse1" className="collapse">
-          lorem30
-        </div>
-     
-        <ListSubheader component="div" id="nested-list-subheader" style={{backgroundColor:'white', marginBottom:'10px', padding:'10px'}}>
-        What is Next stage Lab
-          <span className="justify-content-end float-right pull-right add">+</span>
-        </ListSubheader>
-    
-        <ListSubheader component="div" id="nested-list-subheader" style={{backgroundColor:'white', marginBottom:'10px', padding:'10px'}}>
-        What is Next stage Lab
-          <span className="justify-content-end float-right pull-right add">+</span>
-        </ListSubheader>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-         
-            <ListItemText primary=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vero quisquam ullam
-             consectetur maxime tenetur necessitatibus
-            , repudiandae doloremque voluptas voluptatem." />
-           
-          
-        </List>
-      </Collapse>
-    </List>
+      <Accordion style={{border:'0px'}}>
+        <AccordionSummary
+          expandIcon={<ExpandMore/>}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+         <div className="list-title">WHat is Next Stage lab</div>
+        </AccordionSummary>
+        <AccordionDetails>
+          <div className="list-details">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor, sit amet consectetur adipisicing elit
+            . Nulla similique vel ea voluptatum dolorem aliquam minus quibusdam beatae quam nobis.
+          </div>
+        </AccordionDetails>
+      </Accordion>
+
+
+    </div>
   );
 }

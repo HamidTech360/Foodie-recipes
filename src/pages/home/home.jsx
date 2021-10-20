@@ -26,7 +26,7 @@ const Home = ()=>{
             <Banner2/>
             <CARDS2/>
             <Banner3/>
-            <div className="text-center who-we-are">What we Offer</div>
+            <div className="text-center who-we-are">Frequently asked questions</div>
             <div className="container" style={{marginTop:'10px'}}>
                 <NestedList/>
             </div>

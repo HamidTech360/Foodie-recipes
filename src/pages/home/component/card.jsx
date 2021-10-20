@@ -4,7 +4,7 @@ import { Fab } from '@material-ui/core'
 import { ArrowRightAlt } from '@material-ui/icons'
 import './css/card.css'
 import 'font-awesome/css/font-awesome.css'
-const Card = ({headingText, subText, icon, iconColor, floatActionColor, isBtn})=>{
+const Card = ({headingText, subText, icon, iconColor, floatActionColor, isBtn, link})=>{
     return(
         <div className="card">
             <div className="icon">
@@ -27,8 +27,10 @@ const Card = ({headingText, subText, icon, iconColor, floatActionColor, isBtn})=
             }
             {
                 isBtn? <div className="join-now">
-                <Link to ="#" style={{fontSize:'10px'}}>Learn more</Link>
-                <button className="btn float-right pull-right" style={{backgroundColor:iconColor, color:'white'}}>Join Now</button>
+                <Link to ={"/"} style={{fontSize:'10px'}}>Learn more</Link>
+                <Link to={link}>
+                    <button className="btn float-right pull-right" style={{backgroundColor:iconColor, color:'white'}}>Join Now</button>
+                </Link>
             </div>:''
             }
             

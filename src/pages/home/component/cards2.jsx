@@ -12,6 +12,7 @@ const CARDS2 = ()=>{
                 iconColor="#FF8A48"
                 floatActionColor="#FFECE1"
                 isBtn
+                link="/signup"
             />
         </div>
         <div className="col-lg-5 col-md-5 col-sm-5 col-xs-12 tab-2">
@@ -22,6 +23,7 @@ const CARDS2 = ()=>{
                 iconColor="#2C55BD"
                 floatActionColor="#F2F4FA"
                 isBtn
+                link="/signup"
             />
         </div>
         <div className="col-lg-5 col-md-5 col-sm-5 col-xs-12 tab-2">
@@ -32,6 +34,7 @@ const CARDS2 = ()=>{
                 iconColor="#1CCA76"
                 floatActionColor="#E4F7EE"
                 isBtn
+                link="/signup"
             />
         </div>
         <div className="col-lg-5 col-md-5 col-sm-5 col-xs-12 tab-2">
@@ -42,6 +45,7 @@ const CARDS2 = ()=>{
                 iconColor="#632ADE"
                 floatActionColor="#EFEAFC"
                 isBtn
+                link="/signup"
             />
         </div>
 

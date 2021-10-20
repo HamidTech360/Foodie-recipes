@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import NavBar from './navbar'
 import './css/banner1.css'
 
@@ -32,7 +33,9 @@ const Banner1= ()=>{
                         <div className="bold-text">Are you ready to join our network?</div>
                         <div className="light-text">Learn network and have access to exclusive contents to increase their income and sharpen their skils
                          </div>
-                         <button className="trial btn btn-primary" style={{backgroundColor:'rgb(39, 39, 192)'}}>Start your 7-days free trial</button>
+                        <Link to ="/signup">
+                            <button className="trial btn btn-primary" style={{backgroundColor:'rgb(39, 39, 192)'}}>Start your 7-days free trial</button>
+                        </Link>
                     </div>
 
                    

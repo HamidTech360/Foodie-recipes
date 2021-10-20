@@ -3,3 +3,13 @@
     font-weight: bolder;
     cursor: pointer;
 }
+.list-title{
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.list-details{
+    font-size:13px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}

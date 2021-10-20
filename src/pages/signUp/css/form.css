@@ -102,6 +102,11 @@ label{
 .alert-danger,.alert-success{
     font-size: 12px;
 }
+.forgot_pwd{
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
 @media screen and (max-width:560px) {
     label{
         font-size: 12px;

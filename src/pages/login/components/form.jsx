@@ -54,7 +54,7 @@ const Form = ()=>{
             if(response.data.success){
                 localStorage.clear()
                 localStorage.setItem('login_token', response.data.data.authorizationToken)
-                history.push('/community')
+                history.push('/dashboard')
             }
            
             
@@ -93,6 +93,7 @@ const Form = ()=>{
                 <div className="form-group">
                     <label htmlFor="Password">Password</label>
                     <input onChange={(e)=>handleChange(e)} name="password" type="password" className="form-control signup-form" placeholder="user@example.com" />
+                    <span className="forgot_pwd">Forgot password ?</span>
                 </div>
 
                 <button onClick={()=>handleSubmit()} className="btn btn-signUp btn-lg btn-block" style={{width:'100%'}}>  {progress?<CircularProgress size={20} />:'Login'}</button>
