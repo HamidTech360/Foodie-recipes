@@ -98,11 +98,7 @@ const SideNav = ()=>{
                 anchor="left"
                 classes={{paper:styles.paper}}
             >
-<<<<<<< HEAD
                 <img src="./assets/logo2.png" alt="dashboard logo"  className="logo float-left" />
-=======
-                <img src="./assets/logo2.png" alt="tnsl" className="logo float-left" />
->>>>>>> 8b67148e0df91226b6735aa88f45d78c892cffd1
                 <Toolbar />
                
                 <List>
