@@ -72,7 +72,9 @@ const Form = ()=>{
                 <img src="./assets/logo.png" className="form-logo-on-mobile" alt="" />
             </div>
 
-            <SignUpNavBar NavOptions={NavBarOptions} />
+            <div className="form-menu-icon-on-mobile">
+                <SignUpNavBar NavOptions={NavBarOptions} />
+            </div>
 
             <div className="hideOnDesktop hideBoldText">
                     Welcome Back
@@ -82,7 +84,7 @@ const Form = ()=>{
             </div>
 
             
-            <div className="form-container container" id="form-container">
+            <div className="form-container  container" id="login-form">
                 <div className="text-center sign-up-header">Login</div>
                 {errorMessage && <div className="alert alert-danger">OOps, account not found!!! {errorMessage} <i className="fa fa-window-close fa-1x pull-right"></i></div>}
                 <div className="form-group">

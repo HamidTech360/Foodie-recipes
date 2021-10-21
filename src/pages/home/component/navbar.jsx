@@ -103,7 +103,7 @@ const NavBar = ({NavOptions})=>{
           </SwipeableDrawer>
            
                <img src="./assets/logo2.png"  className="home-logo float-left" alt="logo" />
-            <i className="fa fa-align-left justify-content-end float-right pull-right  fa-1x hideOnDesktop" style={{color:'white', marginRight:'20px'}} onClick={toggleDrawer('right', true)}></i>
+            <i className="fa fa-align-left justify-content-end float-right pull-right  fa-1x hideOnDesktop home-menu-icon" style={{color:'white', marginRight:'20px'}} onClick={toggleDrawer('right', true)}></i>
             <ul className="nav home-nav  justify-content-end hideOnMobile">
                 <li className="nav-item"><Link to="/" className="nav-link" style={{color:'white', fontSize:'12px'}}>Home</Link></li>
                 <li className="nav-item"><Link to="/signup" className="nav-link" style={{color:'white', fontSize:'12px'}}> SignUp</Link></li>

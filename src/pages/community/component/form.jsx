@@ -26,8 +26,9 @@ const Form = ()=>{
             <div className="hideOnDesktop">
                 <img src="./assets/logo.png" className="form-logo-on-mobile" alt="" />
             </div>
-
-            <SignUpNavBar NavOptions={NavBarOptions} />
+            <div className="form-menu-icon-on-mobile">      
+                <SignUpNavBar NavOptions={NavBarOptions} />
+            </div>
 
             <div className="hideOnDesktop hideBoldText">
                     Choose your community

@@ -5,9 +5,12 @@
     border-color: white;
     border-radius: 10px;
     padding-left: 50px;
+    transform: scale(1.001);
 }
+
 .grid-2{
-    padding-left: 10px;
+    
+    justify-content: center;
 }
 .heading-text{ 
     margin-bottom: 20px;

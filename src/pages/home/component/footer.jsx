@@ -10,7 +10,7 @@ const Footer = ()=>{
                         <div className="heading-text">
                             Don't Hesitate
                         </div>
-                        <div className="light-text">
+                        <div className="footer-light-text">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, magni.
                         </div>
                     </div>

@@ -12,6 +12,8 @@
     text-align: left;
     padding-right: 100px;
     overflow: hidden;
+    background-image: url('../../../assets/background3.jpg');
+    background-repeat: no-repeat;
 }
 /* .side-overlay{
   
@@ -34,6 +36,7 @@
 .side-text{
     margin-top: 100px;
     margin-bottom: 200px;
+    max-width: 500px;
 }
 .logo{
     width: 100px;

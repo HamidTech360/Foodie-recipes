@@ -27,6 +27,9 @@
 }
 
 @media screen and (max-width:700px){
+    .navBar{
+        padding-top: 30px;
+    }
     .logo{
         width: 100px;
         height: 26.65px;
@@ -34,7 +37,7 @@
         margin-top: 22px;
     } 
     .home-nav{
-        margin-top: -30px;
+        margin-top: 50px;
     }
     .hideOnMobile{
         display: none;

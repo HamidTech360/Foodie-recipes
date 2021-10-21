@@ -4,9 +4,9 @@
     cursor: pointer;
 }
 .list-title{
-    font-size: 13px;
+    font-size: 12px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-weight: 400;
 }
 .list-details{
     font-size:13px;

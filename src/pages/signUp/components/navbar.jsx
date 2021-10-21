@@ -103,7 +103,7 @@ const NavBar = ({NavOptions})=>{
            
             
             <i className="fa fa-align-left justify-content-end float-right pull-right menuIcon fa-1x hideOnDesktop" style={{color:'white', marginTop:'-20px'}} onClick={toggleDrawer('right', true)}></i>
-            <ul className="nav home-nav justify-content-end hideOnMobile" style={{marginTop:'20px'}}>
+            <ul className="nav home-nav justify-content-end hideOnMobile" style={{marginTop:'40px', fontFamily: 'Montserrat, sansserif'}}>
                 <li className="nav-item"><Link to="/" className="nav-link" style={{color:'rgb(59, 57, 57)', fontSize:'12px', fontWeight:'700'}}>Home</Link></li>
                 <li className="nav-item"><Link to="/login" className="nav-link" style={{color:'rgb(59, 57, 57)', fontSize:'12px', fontWeight:'700'}}> Login</Link></li>
                 <li className="nav-item"><Link to="/signup" className="nav-link" style={{color:'rgb(59, 57, 57)', fontSize:'12px', fontWeight:'700'}}> SignUp</Link></li>

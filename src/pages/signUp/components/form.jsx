@@ -209,11 +209,13 @@ const Form = (props)=>{
         
         <div className="right-side-form  container">
             
-            <div className="hideOnDesktop">
+            <div className="hideOnDesktop form-logo-on-mobile-container">
                 <img src="./assets/logo.png" className="form-logo-on-mobile" alt="" />
             </div>
 
-            <SignUpNavBar NavOptions={NavBarOptions} />
+            <div className="form-menu-icon-on-mobile">
+                <SignUpNavBar NavOptions={NavBarOptions} />
+            </div>
 
             <div className="hideOnDesktop hideBoldText">
                     Your community awaits your arival

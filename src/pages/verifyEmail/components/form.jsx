@@ -50,7 +50,7 @@ const Form = ()=>{
         }catch(error){
                 setBackendError(error.response?.data)
                 console.log(error.response?.data);
-                if( error.response?.data.message == 'Email already verified'){
+                if( error.response?.data.message === 'Email already verified'){
                     alert('verified')
                     history.push('/community')
                 }
@@ -100,7 +100,9 @@ const Form = ()=>{
                 <img src="./assets/logo.png" className="form-logo-on-mobile" alt="" />
             </div>
 
-            <SignUpNavBar NavOptions={NavBarOptions} />
+            <div className="form-menu-icon-on-mobile">
+                 <SignUpNavBar NavOptions={NavBarOptions} />
+            </div>
 
             <div className="hideOnDesktop hideBoldText">
                     Almost Done
