@@ -1,0 +1,16 @@
+.big-box{
+    padding-top: 30px;
+  
+}
+.master-container{
+    background-color: whitesmoke;
+    height: 650px;
+}
+.images{
+    margin-top: 30px;
+}
+@media screen and (max-width:800px) {
+    .nav-box{
+        display: none;
+    }
+}

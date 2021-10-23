@@ -1,0 +1,26 @@
+.papers{
+    
+    margin-top: 10px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+    color: gray;
+    
+}
+.paper-text{
+    color: grey;
+    margin-right: 10px;
+    font-size: 14px;
+}
+.paper-wrapper{
+    background-color: white;
+    margin: 7px;
+}
+
+@media screen and (max-width:700px) {
+    .paper-text{
+        font-size: 10px;
+    }
+    .paper-wrapper{
+        width: fit-content;
+    }
+}

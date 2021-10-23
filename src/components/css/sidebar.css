@@ -1,0 +1,20 @@
+.sideBar{
+    width: inherit;
+    color:white;
+    font-weight:500;
+    font-size: 15px;
+    font-family: 'Heebo', sans-serif;
+}
+.sideBarIcons{
+    margin-right: 20px;
+}
+.list-heading{
+    font-weight: 700;
+}
+.list-item{
+    padding-left: 50px;
+}
+.logo{
+    width: 150px;
+    height: 30px;
+}
