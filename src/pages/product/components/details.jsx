@@ -8,7 +8,7 @@ const Details = ({id})=>{
         const product = API[id]
         console.log(product);
         setData(product)
-    }, [])
+    }, [id])
     return(
         <div>
             <div className="product-image" style={{backgroundImage:`url(${data.imageURL})`, backgroundPosition:'center', backgroundSize:'cover'}}>

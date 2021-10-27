@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
  import Details from './components/details'
 import API from '../../seedData/recImagesFullest.json'
 const Product = (props)=>{
-    const [data , setData] = useState([])
+    const [data, setData] = useState([])
     useEffect(()=>{
         setData(API)
         console.log(props.match.params.id);
@@ -30,7 +30,7 @@ const Product = (props)=>{
                    <Elevation/>
                </div>
                <div className="details">
-                   <Details id={props.match.params.id}/>
+                   <Details id={props.match.params.id} data={data}/>
                </div>
               
            </div>
