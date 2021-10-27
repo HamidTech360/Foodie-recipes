@@ -33,24 +33,14 @@ const  Elevation = () =>{
                   <span className="more"><ExpandMore style={{color:'lightgrey'}}/></span> 
              
              </div>
-             <div className="paper-wrapper col-3 col-lg-2 col-md-2 col-sm-4 col-xs-4">
-          
-                  <span className="paper-text">Gender</span>
-                  <span className="more"><ExpandMore style={{color:'lightgrey'}}/></span> 
-             
-             </div>
+            
              <div className="paper-wrapper col-3 col-lg-2 col-md-2 col-sm-4 col-xs-4">
           
                    <span className="paper-text">Location</span>
                   <span className="more"><ExpandMore style={{color:'lightgrey'}}/></span> 
              
              </div>
-             <div className="paper-wrapper col-3 col-lg-2 col-md-2 col-sm-4 col-xs-4">
-          
-                   <span className="paper-text">Profession</span>
-                  <span className="more"><ExpandMore style={{color:'lightgrey'}}/></span> 
-             
-             </div>
+            
           </div>
           
          

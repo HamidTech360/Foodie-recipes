@@ -66,7 +66,7 @@ const NavBar = ({NavOptions})=>{
                   <ListItemIcon>
                       
                   </ListItemIcon>
-                  <Link to ={item.link}  style={{color:'white', textDecorationLine:'none'}}>
+                  <Link to ={"#"}  style={{color:'white', textDecorationLine:'none'}}>
                     <ListItemText primary={item.name}/>
                   </Link>
                   <Divider/>

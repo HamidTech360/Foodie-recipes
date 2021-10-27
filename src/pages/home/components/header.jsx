@@ -4,14 +4,14 @@ import NavBar from './navbar'
 import './css/header.css'
 import { ExpandMore } from '@material-ui/icons';
 
-const Header = ()=>{
+const Header = ({onChangeHandler})=>{
     return(
         <div className="header">
             <div className="input-group showOnDesktop" id="input-box">
                 <div className="input-group-prepend">
                     <i className="fa fa-search"></i>
                 </div>
-                <input type="text" className="form-control" id="search-box" placeholder="Find Something..."/>
+                <input onChange={(e)=>onChangeHandler(e)} type="text" className="form-control" id="search-box" placeholder="Find Something..."/>
                 <div className="input-group-prepend">
                     <button className="btn btn-search">Search</button>
                 </div>

@@ -53,15 +53,15 @@ export default function CustomizedBadges() {
           >
               <ul className="list-group notification-list">                    
                   <li className="list-group-item notification-options">
-                     <span><img src="./assets/images-15.jpeg" alt="image" className="notification-imgs" /></span>
+                     <span><img src="./assets/images-15.jpeg" alt="profile" className="notification-imgs" /></span>
                      <span className="pull-right">Your Accounnt is live</span>
                    </li> 
                    <li className="list-group-item notification-options">
-                     <span><img src="./assets/images-15.jpeg" alt="image" className="notification-imgs" /></span>
+                     <span><img src="./assets/images-15.jpeg" alt="profile" className="notification-imgs" /></span>
                      <span className="pull-right">Your Accounnt is live</span>
                    </li> 
                    <li className="list-group-item notification-options">
-                     <span><img src="./assets/images-15.jpeg" alt="image" className="notification-imgs" /></span>
+                     <span><img src="./assets/images-15.jpeg" alt="profile" className="notification-imgs" /></span>
                      <span className="pull-right">Your Accounnt is live</span>
                    </li>                    
               </ul>

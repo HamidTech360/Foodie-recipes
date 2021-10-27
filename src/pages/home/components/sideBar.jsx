@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { Drawer } from '@material-ui/core'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import './css/sidebar.css'
 
 const useStyles = makeStyles({
